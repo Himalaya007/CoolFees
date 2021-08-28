@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
-  "repository": "https://github.com/Himalaya007/CoolFees.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Himalaya007/CoolFees.git"
+  },
   "author": "ketan0078 <pathareketan1@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -15,6 +18,23 @@
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.0",
-    "nodemon": "^2.0.12"
-  }
+    "nodemon": "^2.0.12",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.1.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "bugs": {
+    "url": "https://github.com/Himalaya007/CoolFees/issues"
+  },
+  "homepage": "https://github.com/Himalaya007/CoolFees#readme",
+  "keywords": [],
+  "description": ""
 }
