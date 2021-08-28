@@ -1,10 +1,13 @@
-import expres from "express";
+import express from "express";
 import connect from "./config/db.js";
+import Userroute from "./routes/userroute.js";
 const app = expres();
 
 connect();
 
-app.use(expres.json());
+app.use(express.json());
+app.use("/api/users", Userroute);
+
 const PORT = process.env.PORT || 5000;
 app.listen(
   PORT,
