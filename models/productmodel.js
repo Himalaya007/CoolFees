@@ -44,14 +44,11 @@ const productSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  category: {
-    type: String,
-    required: true,
-  },
-  size: {
-    type: String,
-    required: true,
-  },
+  // category: {
+  //   type: String,
+  //   required: true,
+  // },
+  categories: [{ type: String }],
   description: {
     type: String,
     required: true,
