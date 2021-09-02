@@ -4,9 +4,9 @@ import Registerscreen from "./screens/registerscreen";
 import Loginscreen from "./screens/loginscreen";
 import Profilescreen from "./screens/profilescreen";
 import Shippingscreen from "./screens/Shippingscreen";
-import Paymentscreen from "./screens/Paymentscreen";
+import Paymentscreen from "./screens/paymentscreen";
 import Placeorderscreen from "./screens/placeorderscreen";
-import Orderscreen from "./screens/Orderscreen";
+import Orderscreen from "./screens/orderscreen";
 import Productscreen from "./screens/productscreen";
 import Home from "./screens/Homescreen";
 import Cartscreen from "./screens/cartscreen";
@@ -23,33 +23,33 @@ function App() {
     //   <Route path='/login' component={Loginscreen}></Route>
     // </Router>
     <Router>
-      <Route path='/login' component={Loginscreen}></Route>
-      <Route path='/register' component={Registerscreen}></Route>
-      <Route path='/profile' component={Profilescreen}></Route>
-      <Route path='/shipping' component={Shippingscreen}></Route>
-      <Route path='/payment' component={Paymentscreen}></Route>
-      <Route path='/placeorder' component={Placeorderscreen}></Route>
-      <Route path='/order/:id' component={Orderscreen}></Route>
-      <Route path='/' component={Home} exact></Route>
-      <Route path='/products/:id' component={Productscreen}></Route>
-      <Route path='/cart/:id?' component={Cartscreen}></Route>
-      <Route path='/admin/userlist' component={Userlistscreen}></Route>
-      <Route path='/admin/user/:id/edit' component={Usereditscreen}></Route>
+      <Route path="/login" component={Loginscreen}></Route>
+      <Route path="/register" component={Registerscreen}></Route>
+      <Route path="/profile" component={Profilescreen}></Route>
+      <Route path="/shipping" component={Shippingscreen}></Route>
+      <Route path="/payment" component={Paymentscreen}></Route>
+      <Route path="/placeorder" component={Placeorderscreen}></Route>
+      <Route path="/order/:id" component={Orderscreen}></Route>
+      <Route path="/" component={Home} exact></Route>
+      <Route path="/products/:id" component={Productscreen}></Route>
+      <Route path="/cart/:id?" component={Cartscreen}></Route>
+      <Route path="/admin/userlist" component={Userlistscreen}></Route>
+      <Route path="/admin/user/:id/edit" component={Usereditscreen}></Route>
       <Route
-        path='/admin/productlist'
+        path="/admin/productlist"
         component={Productlistscreen}
         exact
       ></Route>
       <Route
-        path='/admin/productlist/:pageNumber'
+        path="/admin/productlist/:pageNumber"
         component={Productlistscreen}
         exact
       ></Route>
       <Route
-        path='/admin/product/:id/edit'
+        path="/admin/product/:id/edit"
         component={Producteditscreen}
       ></Route>
-      <Route path='/admin/orderlist' component={Orderlistscreen}></Route>
+      <Route path="/admin/orderlist" component={Orderlistscreen}></Route>
     </Router>
   );
 }

@@ -7,8 +7,6 @@ import {
 } from "../actions/orderactions";
 import axios from "axios";
 
-import Message from "../components/Message";
-
 const Orderscreen = (props) => {
   const cart = useSelector((state) => state.cart);
 
