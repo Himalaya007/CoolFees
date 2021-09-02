@@ -1,7 +1,7 @@
 import express from "express";
 import connect from "./config/db.js";
 import Userroute from "./routes/userroute.js";
-const app = expres();
+const app = express();
 
 connect();
 
