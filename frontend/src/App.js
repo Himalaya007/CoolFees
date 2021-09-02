@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Registerscreen from "./screens/registerscreen";
 import Loginscreen from "./screens/loginscreen";
 import Profilescreen from "./screens/profilescreen";
-import Shippingscreen from "./screens/Shippingscreen";
+import Shippingscreen from "./screens/shippingscreen";
 import Paymentscreen from "./screens/paymentscreen";
 import Placeorderscreen from "./screens/placeorderscreen";
 import Orderscreen from "./screens/orderscreen";
