@@ -1,12 +1,14 @@
 import express from "express";
 import connect from "./config/db.js";
 import Userroute from "./routes/userroute.js";
+import Productroute from "./routes/productroute.js";
 const app = express();
 
 connect();
 
 app.use(express.json());
 app.use("/api/users", Userroute);
+app.use("/api/products", Productroute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(

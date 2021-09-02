@@ -6,12 +6,24 @@ const userSchema = mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true },
-    isAdmin: { type: Boolean, required: true, default: false },
+    isAdmin: { type: Boolean, default: false },
   },
   {
     timestamps: true,
   }
 );
+
+// userSchema.methods.matchpassword = async function (password) {
+//   return await bcrypt.compare(password, this.password);
+// };
+
+// userSchema.pre("save", async function (next) {
+//   if (!this.isModified("password")) {
+//     next();
+//   }
+
+//   this.password = await bcrypt.hash(this.password);
+// });
 
 userSchema.methods.matchpassword = async function (password) {
   return await bcrypt.compare(password, this.password);
@@ -22,7 +34,8 @@ userSchema.pre("save", async function (next) {
     next();
   }
 
-  this.password = await bcrypt.hash(this.password);
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
 });
 
 const User = mongoose.model("User", userSchema);

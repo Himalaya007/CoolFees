@@ -2,10 +2,10 @@ import asynchandler from "express-async-handler";
 import User from "../models/usermodel.js";
 import generateauth from "../generateauth.js";
 
-export const createuser = asynchandler((req, res) => {
+export const createuser = asynchandler(async (req, res) => {
   const { email, password, name } = req.body;
 
-  const user = User.create({
+  const user = await User.create({
     email,
     password,
     name,
@@ -16,19 +16,19 @@ export const createuser = asynchandler((req, res) => {
       id: user._id,
       email: user.email,
       name: user.name,
-      isAdmin: user.isAdmin,
+      // isAdmin: user.isAdmin,
     });
   } else {
     res.send("invalid credentials");
   }
 });
 
-export const loginuser = asynchandler((req, res) => {
+export const loginuser = asynchandler(async (req, res) => {
   const { email, password } = req.body;
 
-  const user = User.findOne({ email });
+  const user = await User.findOne({ email });
 
-  if (user && awaituser.matchpassword(password)) {
+  if (user && (await user.matchpassword(password))) {
     res.json({
       id: user._id,
       email: user.email,
@@ -41,10 +41,10 @@ export const loginuser = asynchandler((req, res) => {
   }
 });
 
-export const getuserprofile = asynchandler((req, res) => {
+export const getuserprofile = asynchandler(async (req, res) => {
   // const {email,password}=req.body
 
-  const user = User.findbyId(req.user._id);
+  const user = await User.findbyId(req.user._id);
 
   if (user) {
     res.json({
@@ -59,7 +59,7 @@ export const getuserprofile = asynchandler((req, res) => {
   }
 });
 
-export const updateuserprofile = asynchandler((req, res) => {
+export const updateuserprofile = asynchandler(async (req, res) => {
   const user = await User.findbyId(req.user._id);
   if (user) {
     if (req.body.email) {
@@ -86,7 +86,7 @@ export const updateuserprofile = asynchandler((req, res) => {
   }
 });
 
-export const deleteuser = asynchandler((req, res) => {
+export const deleteuser = asynchandler(async (req, res) => {
   const user = await User.findbyId(req.user._id);
   if (user) {
     await user.remove();
@@ -96,7 +96,7 @@ export const deleteuser = asynchandler((req, res) => {
   }
 });
 
-export const updateuserbyid = asynchandler((req, res) => {
+export const updateuserbyid = asynchandler(async (req, res) => {
   const user = await User.findbyId(req.params.id);
   if (user) {
     if (req.body.email) {
